@@ -1,18 +1,33 @@
 import { MouseEventHandler } from "react";
 
 export interface CarProps {
+  id?: string;
   city_mpg: number;
-  class: string;
-  combination_mpg: number;
-  cylinders: number;
-  displacement: number;
-  drive: string;
-  fuel_type: string;
   highway_mpg: number;
+  combination_mpg?: number;
+  class: string;
+  cylinders: number;
+  displacement?: number;
+  drive: string; // 'rwd' | 'fwd' | 'awd' | '4wd'
+  fuel_type: string; // 'gas' | 'electric' | 'hybrid' | 'diesel'
   make: string;
   model: string;
-  transmission: string;
+  transmission: string; // 'a' | 'm' | 'Automatic' | 'Manual'
   year: number;
+  horsepower?: number;
+  acceleration0to60?: number; // seconds
+  rentPrice?: number; // $ per day
+  msrp?: number;
+  seats?: number;
+  description?: string;
+  features?: string[];
+  images?: {
+    main: string;
+    angleFront?: string;
+    angleSide?: string;
+    angleRear?: string;
+    interior?: string;
+  };
 }
 
 export interface FilterProps {
@@ -21,6 +36,8 @@ export interface FilterProps {
   model?: string;
   limit?: number;
   fuel?: string;
+  drive?: string;
+  maxPrice?: number;
 }
 
 export interface HomeProps {
@@ -28,22 +45,17 @@ export interface HomeProps {
 }
 
 export interface CarCardProps {
-  model: string;
-  make: string;
-  mpg: number;
-  transmission: string;
-  year: number;
-  drive: string;
-  cityMPG: number;
+  car: CarProps;
 }
 
 export interface CustomButtonProps {
   isDisabled?: boolean;
-  btnType?: "button" | "submit";
+  btnType?: "button" | "submit" | "reset";
   containerStyles?: string;
   textStyles?: string;
   title: string;
   rightIcon?: string;
+  leftIcon?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
