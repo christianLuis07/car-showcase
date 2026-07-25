@@ -74,7 +74,10 @@ export interface ShowMoreProps {
   isNext: boolean;
 }
 
-export interface SearchManuFacturerProps {
+export interface SearchManufacturerProps {
   manufacturer: string;
-  setManuFacturer: (manufacturer: string) => void;
+  setManufacturer: (manufacturer: string) => void;
 }
+
+// Alias for backwards compatibility with original repository naming
+export type SearchManuFacturerProps = SearchManufacturerProps;
